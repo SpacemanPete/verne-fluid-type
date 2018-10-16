@@ -1,0 +1,118 @@
+// 
+// Verne Configuration module
+// 
+// Sets defaults values for use by the other modules
+
+// 
+// Imports
+// 
+@import 'math-pow';
+
+// 
+// Viewport width
+// 
+// Maximum
+$verne-vw-max: 1200px !default;
+// Minimum
+$verne-vw-min: 320px !default;
+
+// 
+// Root font size
+// 
+// Maximum
+$verne-font-size-root-max: 18px !default;
+// Minimum
+$verne-font-size-root-min: 14px !default;
+
+// 
+// Modular font scale
+// 
+// Set your own numerical value to define the modular scale
+// or use one of the common modular font scale alternatives:
+//
+//   Minor Second:      1.067
+//   Major Second:      1.125
+//   Minor Third:       1.200
+//   Major Third:       1.250
+//   Perfect Fourth:    1.333
+//   Augmented Fourth:  1.414
+//   Perfect Fifth:     1.500
+//   Golden Ratio:      1.618
+
+// Font scale maximum
+$verne-font-scale-max: 1.414 !default; // Augmented Fourth
+
+// Font scale minimum
+$verne-font-scale-min: 1.2 !default; // Minor Third
+
+// 
+// Calculating the Modular font scale values for Headers and other elements
+//
+
+// Paragraph (default)
+// Maximum
+$verne-font-size-paragraph-max: calc($verne-font-size-root-max);
+// Minimum
+$verne-font-size-paragraph-min: calc($verne-font-size-root-min);
+
+// // Lead / Highlighted
+// // Maximum
+// $verne-font-size-lead-max: calc($verne-font-size-root-max * poly-pow($verne-font-scale-max, 1));
+// // Minimum
+// $verne-font-size-lead-min: calc($verne-font-size-root-min * poly-pow($verne-font-scale-min, 1));
+
+// // Small / reduced
+// // Maximum
+// $verne-font-size-small-max: calc($verne-font-size-root-max / poly-pow($verne-font-scale-max, 1));
+// // Minimum
+// $verne-font-size-small-min: calc($verne-font-size-root-min / poly-pow($verne-font-scale-min, 1));
+
+// H1 (Header 1)
+// Maximum
+$verne-font-size-h1-max: calc($verne-font-size-root-max * poly-pow($verne-font-scale-max, 4));
+// Minimum
+$verne-font-size-h1-min: calc($verne-font-size-root-min * poly-pow($verne-font-scale-min, 4));
+
+// H2 (Header 2)
+// Maximum
+$verne-font-size-h2-max: calc($verne-font-size-root-max * poly-pow($verne-font-scale-max, 3));
+// Minimum
+$verne-font-size-h2-min: calc($verne-font-size-root-min * poly-pow($verne-font-scale-min, 3));
+
+// H3 (Header 3)
+// Maximum
+$verne-font-size-h3-max: calc($verne-font-size-root-max * poly-pow($verne-font-scale-max, 2));
+// Minimum
+$verne-font-size-h3-min: calc($verne-font-size-root-min * poly-pow($verne-font-scale-min, 2));
+
+// H4 (Header 4)
+// Maximum
+$verne-font-size-h4-max: calc($verne-font-size-root-max * poly-pow($verne-font-scale-max, 1));
+// Minimum
+$verne-font-size-h4-min: calc($verne-font-size-root-min * poly-pow($verne-font-scale-min, 1));
+
+// H5 (Header 5)
+// Maximum
+$verne-font-size-h5-max: calc($verne-font-size-root-max);
+// Minimum
+$verne-font-size-h5-min: calc($verne-font-size-root-min);
+
+// H6 (Header 6)
+// Maximum
+$verne-font-size-h6-max: calc($verne-font-size-root-max / poly-pow($verne-font-scale-max, 1));
+// Minimum
+$verne-font-size-h6-min: calc($verne-font-size-root-min / poly-pow($verne-font-scale-min, 1));
+
+// 
+// Line Heights
+// 
+
+$h1: 1.067;
+$h2: 1.042;
+$h3: 1.111;
+$h4: 1.071;
+$h5: 1.167;
+$h6: 1.556;
+$p: ;
+$lead: ;
+$small: ;
