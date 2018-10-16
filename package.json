@@ -1,0 +1,25 @@
+{
+  "name": "verne-fluid-type",
+  "version": "0.1.0",
+  "description": "Verne: a fluid typography and spacing system of SASS mixins for impeccably responsive websites.",
+  "main": "sass/_verne-fluid-type.scss",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SpacemanPete/verne-fluid-type.git"
+  },
+  "keywords": [
+    "sass",
+    "typography",
+    "fluid",
+    "responsive"
+  ],
+  "author": "Piotr Butkiewicz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SpacemanPete/verne-fluid-type/issues"
+  },
+  "homepage": "https://github.com/SpacemanPete/verne-fluid-type#readme"
+}
