@@ -4,8 +4,7 @@
   "description": "Verne: a fluid typography and spacing system of SASS mixins for impeccably responsive websites.",
   "main": "sass/_verne-fluid-type.scss",
   "scripts": {
-    "test": "jest",
-    "prepublish": "npm run jest"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
