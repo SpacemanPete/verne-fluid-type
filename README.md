@@ -25,7 +25,10 @@ Additionally, the `fluid-space` mixin leverages the same autocalculated function
   * left
   * right
 
-This project is a very early state with the goal to get to a stable production-ready package around mid December 2018, so this is not recommended for use in production yet as the core API is under fast & heavy development.
+Documentation and testing is very thin at the moment but will be fleshed out as well over the next few weeks.
+
+This project is a very early state but the initial API and functionality is stable for production use, with a number of potential enhancements and refactors over the next few months.
+
 Follow the repo for udpates!
 
 
