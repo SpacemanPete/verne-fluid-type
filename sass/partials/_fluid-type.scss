@@ -1,90 +1,51 @@
 //
 // Fluid Typography mixins module
 //
+// This module defines the fluid type mixins 
+// 
 // TODO: add comments and examples
 //
-@import './variables';
 
+// 
 // Fluidly set font-size & line-height values according to viewport range
-@mixin fluid-type-vp($min-vw, $max-vw, $min-font-size, $max-font-size, $min-line-height, $max-line-height) {
-  $u1: unit($min-vw);
-  $u2: unit($max-vw);
-  $u3: unit($min-font-size);
-  $u4: unit($max-font-size);
-  $u5: unit($min-line-height);
-  $u6: unit($max-line-height);
+// 
+// Variables:
+//    $vw-min = viewport width minimum
+//    $vw-max = viewport width maximum
+//    $fs-min = font size minimum
+//    $fs-max = font size maximum
+//    $lh-min = line height minimum
+//    $lh-max = line height maximum
+@mixin fluid-type-vp($vw-min, $vw-max, $fs-min, $fs-max, $lh-min, $lh-max) {
 
-  // Check that first four variable all have same unit (e.g. px)
+  // TODO: Refactor unit value checks to provide better enforcement of provided argument values
+  //       and more clear error messaging when incorrectly implemented
+
+  // Check the unit values of the arguments
+  $u1: unit($vw-min);
+  $u2: unit($vw-max);
+  $u3: unit($fs-min);
+  $u4: unit($fs-max);
+  $u5: unit($lh-min);
+  $u6: unit($lh-max);
+
+  // Check that the argument unit values match (px, em, etc)
   @if ($u1 == $u2 and $u1 == $u3 and $u1 == $u4 and $u5 == $u6) {
     & {
-      font-size: $min-font-size;
-      line-height: $min-line-height;
+      // Set the font size and line height values to their minimum values as the default
+      font-size: $fs-min;
+      line-height: $lh-min;
 
-      @media screen and (min-width: $min-vw) {
-        font-size: calc( #{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}) );
-        line-height: calc( (#{$min-line-height} * 100%) + #{strip-unit($max-line-height - $min-line-height)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}) );
+      // Above the supplied minimim viewport width size calculate the font size and line height based ont he viewport width.
+      @media screen and (min-width: $vw-min) {
+        font-size: calc( #{$fs-min} + #{strip-unit($fs-max - $fs-min)} * ((100vw - #{$vw-min}) / #{strip-unit($vw-max - $vw-min)}) );
+        line-height: calc( (#{$lh-min} * 100%) + #{strip-unit($lh-max - $lh-min)} * ((100vw - #{$vw-min}) / #{strip-unit($vw-max - $vw-min)}) );
       }
-      @media screen and (min-width: $max-vw) {
-        font-size: $max-font-size;
-        line-height: $max-line-height;
-      }
-    }
-  }
-}
-
-// Shortcut for the above, which uses default stored values for viewport min/max
-@mixin fluid-type($min-font-size, $max-font-size, $min-line-height, $max-line-height) {
-  @include fluid-type-vp($fluid-viewport-min, $fluid-viewport-max, $min-font-size, $max-font-size, $min-line-height, $max-line-height);
-}
-
-///
-/// FLUID SPACING
-///
-/// $property = margin [or] padding
-///   [or: a sub-property like margin-top or padding-left]
-///
-/// See _typography.scss for example usage
-///
-
-// Fluidly set given property values according to viewport range
-@mixin fluid-space-vp($min-vw, $max-vw, $min-space, $max-space, $property) {
-  $u1: unit($min-vw);
-  $u2: unit($max-vw);
-  $u3: unit($min-space);
-  $u4: unit($max-space);
-
-  /// Check that first two pairs of variables have matching units (e.g. px for
-  /// viewport, rem for margin/padding)
-  @if
-    ($u1 == $u2) and
-    ($u3 == $u4) and
-    (
-      str-index($property, 'margin') or
-      str-index($property, 'padding') or
-      str-index($property, 'grid-gap') or
-      str-index($property, 'background-position') or
-      str-index($property, 'background-position-x') or
-      str-index($property, 'background-position-y') or
-      str-index($property, 'background-size') or
-      str-index($property, 'top') or
-      str-index($property, 'width') or
-      str-index($property, 'height')
-    )
-  {
-    & {
-      #{$property}: $min-space;
-
-      @media screen and (min-width: $min-vw) {
-        #{$property}: calc( #{$min-space} + #{strip-unit($max-space - $min-space)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}) );
-      }
-      @media screen and (min-width: $max-vw) {
-        #{$property}: $max-space;
+      // Above the supplied maximum viewport width size set the font size and line height values to the max values
+      @media screen and (min-width: $vw-max) {
+        font-size: $fs-max;
+        line-height: $lh-max;
       }
     }
   }
-}
-
-// Shortcut, which uses default stored values for viewport min/max
-@mixin fluid-space($min-space, $max-space, $property) {
-  @include fluid-space-vp($fluid-viewport-min, $fluid-viewport-max, $min-space, $max-space, $property);
 }
