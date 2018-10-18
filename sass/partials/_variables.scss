@@ -47,72 +47,156 @@ $verne-font-scale-min: 1.2 !default; // Minor Third
 
 // 
 // Calculating the Modular font scale values for Headers and other elements
-//
+// 
 
-// Paragraph (default)
+// Paragraph 1 (default)
 // Maximum
-$verne-font-size-paragraph-max: calc($verne-font-size-root-max);
+$verne-font-size-p1-max: $verne-font-size-root-max !default;
 // Minimum
-$verne-font-size-paragraph-min: calc($verne-font-size-root-min);
+$verne-font-size-p1-min: $verne-font-size-root-min !default;
 
-// // Lead / Highlighted
-// // Maximum
-// $verne-font-size-lead-max: calc($verne-font-size-root-max * poly-pow($verne-font-scale-max, 1));
-// // Minimum
-// $verne-font-size-lead-min: calc($verne-font-size-root-min * poly-pow($verne-font-scale-min, 1));
+// Paragraph 2 (default)
+// Maximum
+$verne-font-size-p2-max: calc($verne-font-size-root-max / poly-pow($verne-font-scale-max, 1)) !default;
+// Minimum
+$verne-font-size-p2-min: calc($verne-font-size-root-min / poly-pow($verne-font-scale-min, 1)) !default;
 
-// // Small / reduced
-// // Maximum
-// $verne-font-size-small-max: calc($verne-font-size-root-max / poly-pow($verne-font-scale-max, 1));
-// // Minimum
-// $verne-font-size-small-min: calc($verne-font-size-root-min / poly-pow($verne-font-scale-min, 1));
+// Paragraph 3 (default)
+// Maximum
+$verne-font-size-p3-max: calc($verne-font-size-root-max / poly-pow($verne-font-scale-max, 2)) !default;
+// Minimum
+$verne-font-size-p3-min: calc($verne-font-size-root-min / poly-pow($verne-font-scale-min, 2)) !default;
+
+// Lead / Highlighted
+// Maximum
+$verne-font-size-lead-max: calc($verne-font-size-root-max * poly-pow($verne-font-scale-max, 1)) !default;
+// Minimum
+$verne-font-size-lead-min: calc($verne-font-size-root-min * poly-pow($verne-font-scale-min, 1)) !default;
+
+// Small / reduced
+// Maximum
+$verne-font-size-small-max: calc($verne-font-size-root-max / poly-pow($verne-font-scale-max, 1)) !default;
+// Minimum
+$verne-font-size-small-min: calc($verne-font-size-root-min / poly-pow($verne-font-scale-min, 1)) !default;
 
 // H1 (Header 1)
 // Maximum
-$verne-font-size-h1-max: calc($verne-font-size-root-max * poly-pow($verne-font-scale-max, 4));
+$verne-font-size-h1-max: calc($verne-font-size-root-max * poly-pow($verne-font-scale-max, 4)) !default;
 // Minimum
-$verne-font-size-h1-min: calc($verne-font-size-root-min * poly-pow($verne-font-scale-min, 4));
+$verne-font-size-h1-min: calc($verne-font-size-root-min * poly-pow($verne-font-scale-min, 4)) !default;
 
 // H2 (Header 2)
 // Maximum
-$verne-font-size-h2-max: calc($verne-font-size-root-max * poly-pow($verne-font-scale-max, 3));
+$verne-font-size-h2-max: calc($verne-font-size-root-max * poly-pow($verne-font-scale-max, 3)) !default;
 // Minimum
-$verne-font-size-h2-min: calc($verne-font-size-root-min * poly-pow($verne-font-scale-min, 3));
+$verne-font-size-h2-min: calc($verne-font-size-root-min * poly-pow($verne-font-scale-min, 3)) !default;
 
 // H3 (Header 3)
 // Maximum
-$verne-font-size-h3-max: calc($verne-font-size-root-max * poly-pow($verne-font-scale-max, 2));
+$verne-font-size-h3-max: calc($verne-font-size-root-max * poly-pow($verne-font-scale-max, 2)) !default;
 // Minimum
-$verne-font-size-h3-min: calc($verne-font-size-root-min * poly-pow($verne-font-scale-min, 2));
+$verne-font-size-h3-min: calc($verne-font-size-root-min * poly-pow($verne-font-scale-min, 2)) !default;
 
 // H4 (Header 4)
 // Maximum
-$verne-font-size-h4-max: calc($verne-font-size-root-max * poly-pow($verne-font-scale-max, 1));
+$verne-font-size-h4-max: calc($verne-font-size-root-max * poly-pow($verne-font-scale-max, 1)) !default;
 // Minimum
-$verne-font-size-h4-min: calc($verne-font-size-root-min * poly-pow($verne-font-scale-min, 1));
+$verne-font-size-h4-min: calc($verne-font-size-root-min * poly-pow($verne-font-scale-min, 1)) !default;
 
 // H5 (Header 5)
 // Maximum
-$verne-font-size-h5-max: calc($verne-font-size-root-max);
+$verne-font-size-h5-max: $verne-font-size-root-max !default;
 // Minimum
-$verne-font-size-h5-min: calc($verne-font-size-root-min);
+$verne-font-size-h5-min: $verne-font-size-root-min !default;
 
 // H6 (Header 6)
 // Maximum
-$verne-font-size-h6-max: calc($verne-font-size-root-max / poly-pow($verne-font-scale-max, 1));
+$verne-font-size-h6-max: calc($verne-font-size-root-max / poly-pow($verne-font-scale-max, 1)) !default;
 // Minimum
-$verne-font-size-h6-min: calc($verne-font-size-root-min / poly-pow($verne-font-scale-min, 1));
+$verne-font-size-h6-min: calc($verne-font-size-root-min / poly-pow($verne-font-scale-min, 1)) !default;
 
 // 
 // Line Heights
 // 
+// Line heights are more difficult to configure for web typography because they don't easily fall into a 
+// programmable rhythym with some mathematical underpinning. I worked with my partner designers to configure
+// this baseline set of default for Verne's out-of-the-box typography system and this includes the following 
+// line height tuning defaults. It's evident that like font kerning, line-height settings don't tend to 
+// follow a mathematical pattern, but just what is pleasing to the eye.
+// 
+// Additionally, line height visual feeling is relative to the typeface being used, so it is recommended to
+// tune the line height settings when changing typeface from Verne's default Helvetica Neue sans-serif typeface
 
-$h1: 1.067;
-$h2: 1.042;
-$h3: 1.111;
-$h4: 1.071;
-$h5: 1.167;
-$h6: 1.556;
-$p: ;
-$lead: ;
-$small: ;
+// Root line height
+// Maximum
+$verne-line-height-root-max: 1.333 !default;
+// Minimum
+$verne-line-height-root-min: 1.333 !default;
+
+// Paragraph 1 (default)
+// Maximum
+$verne-line-height-p1-max: 1.333 !default;
+// Minimum
+$verne-line-height-p1-min: 1.333 !default;
+
+// Paragraph 2
+// Maximum
+$verne-line-height-p2-max: 1.375 !default;
+// Minimum
+$verne-line-height-p2-min: 1.375 !default;
+
+// Paragraph 3
+// Maximum
+$verne-line-height-p3-max: 1.429 !default;
+// Minimum
+$verne-line-height-p3-min: 1.429 !default;
+
+// Lead / Highlighted
+// Maximum
+$verne-line-height-lead-max: 1.364 !default;
+// Minimum
+$verne-line-height-lead-min: 1.364 !default;
+
+// Small / Reduced
+// Maximum
+$verne-line-height-small-max: 1.5 !default;
+// Minimum
+$verne-line-height-small-min: 1.5 !default;
+
+// H1 (Header 1)
+// Maximum
+$verne-line-height-h1-max: 1.067 !default;
+// Minimum
+$verne-line-height-h1-min: 1.067 !default;
+
+// H2 (Header 2)
+// Maximum
+$verne-line-height-h2-max: 1.042 !default;
+// Minimum
+$verne-line-height-h2-min: 1.042 !default;
+
+// H3 (Header 3)
+// Maximum
+$verne-line-height-h3-max: 1.111 !default;
+// Minimum
+$verne-line-height-h3-min: 1.111 !default;
+
+// H4 (Header 4)
+// Maximum
+$verne-line-height-h4-max: 1.071 !default;
+// Minimum
+$verne-line-height-h4-min: 1.071 !default;
+
+// H5 (Header 5)
+// Maximum
+$verne-line-height-h5-max: 1.167 !default;
+// Minimum
+$verne-line-height-h5-min: 1.167 !default;
+
+// H6 (Header 6)
+// Maximum
+$verne-line-height-h6-max: 1.556 !default;
+// Minimum
+$verne-line-height-h6-min: 1.556 !default;
+
+
