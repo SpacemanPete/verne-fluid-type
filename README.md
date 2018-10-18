@@ -25,4 +25,10 @@ Additionally, the `fluid-space` mixin leverages the same autocalculated function
   * left
   * right
 
-This project is a very early state with the goal to get to a stable production-ready package around mid December 2018. Follow the repo for updates!
+This project is a very early state with the goal to get to a stable production-ready package around mid December 2018, so this is not recommended for use in production yet as the core API is under fast & heavy development.
+Follow the repo for udpates!
+
+
+TODO: Add examples of usage out of the box
+
+TODO: Add examples of overiding defaults
