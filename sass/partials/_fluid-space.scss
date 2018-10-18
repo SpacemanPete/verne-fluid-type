@@ -3,7 +3,173 @@
 //
 // TODO: add comments and examples
 //
+// $property = margin [or] padding
+//   [or: a sub-property like margin-top or padding-left]
+//
 
-@import './variables';
+// Fluidly set given property values according to viewport range
+@mixin verne-fluid-space-vp($vw-min, $vw-max, $min-space, $max-space, $property) {
+  $u1: unit($vw-min);
+  $u2: unit($vw-max);
+  $u3: unit($min-space);
+  $u4: unit($max-space);
+
+  /// Check that first two pairs of variables have matching units (e.g. px for
+  /// viewport, rem for margin/padding)
+  @if
+    ($u1 == $u2) and
+    ($u3 == $u4) and
+    (
+      // TODO: refactor property-check block to extract property validation as a call to a separate loop function 
+      str-index($property, 'margin') or
+      str-index($property, 'padding') or
+      str-index($property, 'grid-gap') or
+      str-index($property, 'background-position') or
+      str-index($property, 'background-position-x') or
+      str-index($property, 'background-position-y') or
+      str-index($property, 'background-size') or
+      str-index($property, 'top') or
+      str-index($property, 'width') or
+      str-index($property, 'height')
+    )
+  {
+    & {
+      #{$property}: $min-space;
+
+      @media screen and (min-width: $vw-min) {
+        #{$property}: calc( #{$min-space} + #{strip-unit($max-space - $min-space)} * ((100vw - #{$vw-min}) / #{strip-unit($vw-max - $vw-min)}) );
+      }
+      @media screen and (min-width: $vw-max) {
+        #{$property}: $max-space;
+      }
+    }
+  }
+}
+
+// Creates a shorthand verne-fluid-space function by implementing `verne-fluid-space-vp` using the default stored values for viewport min/max
+@mixin verne-fluid-space($space-min, $space-max, $property) {
+  @include verne-fluid-space-vp($verne-vw-max, $verne-vw-min, $space-min, $space-max, $property);
+}
+
+// 
+// Fluid Margin shorthand functions
+// 
+// Implements the fuid space mixin for all four margins to have equal min/max values
+@mixin verne-fluid-margin-all(
+  $space-min, // margin min value
+  $space-max  // margin max value
+) {
+  @include verne-fluid-space( $space-min, $space-max, 'margin');
+}
+
+// Implements the fuid space mixin for top margins to have one set of equal min/max values
+@mixin verne-fluid-margin-top(
+  $space-min, // top margin min value
+  $space-max, // top margin max value
+) {
+  @include verne-fluid-space( $space-min, $space-max, 'margin-top');
+}
+
+// Implements the fuid space mixin for bottom margins to have one set of equal min/max values
+@mixin verne-fluid-margin-bottom(
+  $space-min, // bottom margin min value
+  $space-max, // bottom margin max value
+) {
+  @include verne-fluid-space( $space-min, $space-max, 'margin-bottom');
+}
+
+// Implements the fuid space mixin for top & bottom margins to have one set of equal min/max values
+@mixin verne-fluid-margin-top-bottom(
+  $space-min, // top and bottom margin min value
+  $space-max, // top and bottom margin max value
+) {
+  @include verne-fluid-margin-top($space-min, $space-max);
+  @include verne-fluid-margin-bottom($space-min, $space-max);
+}
+
+// Implements the fuid space mixin for left margins to have one set of equal min/max values
+@mixin verne-fluid-margin-left(
+  $space-min, // left margin min value
+  $space-max, // left margin max value
+) {
+  @include verne-fluid-space( $space-min, $space-max, 'margin-left');
+}
+
+// Implements the fuid space mixin for right margins to have one set of equal min/max values
+@mixin verne-fluid-margin-right(
+  $space-min, // right margin min value
+  $space-max, // right margin max value
+) {
+  @include verne-fluid-space( $space-min, $space-max, 'margin-right');
+}
+
+// Implements the fuid space mixin for left & right margins to have one set of equal min/max values
+@mixin verne-fluid-margin-lr(
+  $space-min, // left and right margin min value
+  $space-max, // left and right margin max value
+) {
+  @include verne-fluid-margin-left($space-min, $space-max);
+  @include verne-fluid-margin-right($space-min, $space-max);
+}
 
 
+// 
+// Fluid padding shorthand function
+// 
+// Implements the fuid space mixin for all four padding to have equal min/max values
+@mixin verne-fluid-padding-all(
+  $space-min, // padding min value
+  $space-max  // padding max value
+) {
+  @include verne-fluid-space( $space-min, $space-max, 'padding');
+}
+
+// Implements the fuid space mixin for top padding to have one set of equal min/max values
+@mixin verne-fluid-padding-top(
+  $space-min, // top padding min value
+  $space-max, // top padding max value
+) {
+  @include verne-fluid-space( $space-min, $space-max, 'padding-top');
+}
+
+// Implements the fuid space mixin for bottom padding to have one set of equal min/max values
+@mixin verne-fluid-padding-bottom(
+  $space-min, // bottom padding min value
+  $space-max, // bottom padding max value
+) {
+  @include verne-fluid-space( $space-min, $space-max, 'padding-bottom');
+}
+
+// Implements the fuid space mixin for top & bottom padding to have one set of equal min/max values
+@mixin verne-fluid-padding-top-bottom(
+  $space-min, // top and bottom padding min value
+  $space-max, // top and bottom padding max value
+) {
+  @include verne-fluid-padding-top($space-min, $space-max);
+  @include verne-fluid-padding-bottom($space-min, $space-max);
+}
+
+// Implements the fuid space mixin for left padding to have one set of equal min/max values
+@mixin verne-fluid-padding-left(
+  $space-min, // left padding min value
+  $space-max, // left padding max value
+) {
+  @include verne-fluid-space( $space-min, $space-max, 'padding-left');
+}
+
+// Implements the fuid space mixin for right padding to have one set of equal min/max values
+@mixin verne-fluid-padding-right(
+  $space-min, // right padding min value
+  $space-max, // right padding max value
+) {
+  @include verne-fluid-space( $space-min, $space-max, 'padding-right');
+}
+
+// Implements the fuid space mixin for left & right padding to have one set of equal min/max values
+@mixin verne-fluid-padding-lr(
+  $space-min, // left and right padding min value
+  $space-max, // left and right padding max value
+) {
+  @include verne-fluid-padding-left($space-min, $space-max);
+  @include verne-fluid-padding-right($space-min, $space-max);
+}
