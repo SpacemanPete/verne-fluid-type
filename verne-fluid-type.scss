@@ -3,10 +3,10 @@
 // by using the variables defined in `partials/variables`
 // 
 
-// Import partials for Verne Fluid Typography
-@import "partials/variables";
-@import "partials/fluid-type";
-@import "partials/fluid-space";
+// Import sass modules for Verne Fluid Typography
+@import "sass/variables";
+@import "sass/fluid-type";
+@import "sass/fluid-space";
 
 // 
 // Fluid Typography
