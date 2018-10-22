@@ -16,7 +16,7 @@
 //    $fs-max = font size maximum
 //    $lh-min = line height minimum
 //    $lh-max = line height maximum
-@mixin fluid-type-vp($vw-min, $vw-max, $fs-min, $fs-max, $lh-min, $lh-max) {
+@mixin verne-fluid-type-vp($vw-min, $vw-max, $fs-min, $fs-max, $lh-min, $lh-max) {
 
   // TODO: Refactor unit value checks to provide better enforcement of provided argument values
   //       and more clear error messaging when incorrectly implemented
