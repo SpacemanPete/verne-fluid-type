@@ -57,51 +57,51 @@ $verne-font-size-p1-min: $verne-font-size-root-min !default;
 
 // Paragraph 2 (default)
 // Maximum
-$verne-font-size-p2-max: calc($verne-font-size-root-max / poly-pow($verne-font-scale-max, 1)) !default;
+$verne-font-size-p2-max: calc( #{strip-unit($verne-font-size-root-max)} / poly-pow( #{$verne-font-scale-max}, 1)) !default;
 // Minimum
-$verne-font-size-p2-min: calc($verne-font-size-root-min / poly-pow($verne-font-scale-min, 1)) !default;
+$verne-font-size-p2-min: calc( #{strip-unit($verne-font-size-root-min)} / poly-pow( #{$verne-font-scale-min}, 1)) !default;
 
 // Paragraph 3 (default)
 // Maximum
-$verne-font-size-p3-max: calc($verne-font-size-root-max / poly-pow($verne-font-scale-max, 2)) !default;
+$verne-font-size-p3-max: calc( #{strip-unit($verne-font-size-root-max)} / poly-pow( #{$verne-font-scale-max}, 2)) !default;
 // Minimum
-$verne-font-size-p3-min: calc($verne-font-size-root-min / poly-pow($verne-font-scale-min, 2)) !default;
+$verne-font-size-p3-min: calc( #{strip-unit($verne-font-size-root-min)} / poly-pow( #{$verne-font-scale-min}, 2)) !default;
 
 // Lead / Highlighted
 // Maximum
-$verne-font-size-lead-max: calc($verne-font-size-root-max * poly-pow($verne-font-scale-max, 1)) !default;
+$verne-font-size-lead-max: calc( #{strip-unit($verne-font-size-root-max)} * poly-pow( #{$verne-font-scale-max}, 1)) !default;
 // Minimum
-$verne-font-size-lead-min: calc($verne-font-size-root-min * poly-pow($verne-font-scale-min, 1)) !default;
+$verne-font-size-lead-min: calc( #{strip-unit($verne-font-size-root-min)} * poly-pow( #{$verne-font-scale-min}, 1)) !default;
 
 // Small / reduced
 // Maximum
-$verne-font-size-small-max: calc($verne-font-size-root-max / poly-pow($verne-font-scale-max, 1)) !default;
+$verne-font-size-small-max: calc( #{strip-unit($verne-font-size-root-max)} / poly-pow( #{$verne-font-scale-max}, 1)) !default;
 // Minimum
-$verne-font-size-small-min: calc($verne-font-size-root-min / poly-pow($verne-font-scale-min, 1)) !default;
+$verne-font-size-small-min: calc( #{strip-unit($verne-font-size-root-min)} / poly-pow( #{$verne-font-scale-min}, 1)) !default;
 
 // H1 (Header 1)
 // Maximum
-$verne-font-size-h1-max: calc($verne-font-size-root-max * poly-pow($verne-font-scale-max, 4)) !default;
+$verne-font-size-h1-max: calc( #{strip-unit($verne-font-size-root-max)} * poly-pow( #{$verne-font-scale-max}, 4)) !default;
 // Minimum
-$verne-font-size-h1-min: calc($verne-font-size-root-min * poly-pow($verne-font-scale-min, 4)) !default;
+$verne-font-size-h1-min: calc( #{strip-unit($verne-font-size-root-min)} * poly-pow( #{$verne-font-scale-min}, 4)) !default;
 
 // H2 (Header 2)
 // Maximum
-$verne-font-size-h2-max: calc($verne-font-size-root-max * poly-pow($verne-font-scale-max, 3)) !default;
+$verne-font-size-h2-max: calc( #{strip-unit($verne-font-size-root-max)} * poly-pow( #{$verne-font-scale-max}, 3)) !default;
 // Minimum
-$verne-font-size-h2-min: calc($verne-font-size-root-min * poly-pow($verne-font-scale-min, 3)) !default;
+$verne-font-size-h2-min: calc( #{strip-unit($verne-font-size-root-min)} * poly-pow( #{$verne-font-scale-min}, 3)) !default;
 
 // H3 (Header 3)
 // Maximum
-$verne-font-size-h3-max: calc($verne-font-size-root-max * poly-pow($verne-font-scale-max, 2)) !default;
+$verne-font-size-h3-max: calc( #{strip-unit($verne-font-size-root-max)} * poly-pow( #{$verne-font-scale-max}, 2)) !default;
 // Minimum
-$verne-font-size-h3-min: calc($verne-font-size-root-min * poly-pow($verne-font-scale-min, 2)) !default;
+$verne-font-size-h3-min: calc( #{strip-unit($verne-font-size-root-min)} * poly-pow( #{$verne-font-scale-min}, 2)) !default;
 
 // H4 (Header 4)
 // Maximum
-$verne-font-size-h4-max: calc($verne-font-size-root-max * poly-pow($verne-font-scale-max, 1)) !default;
+$verne-font-size-h4-max: calc( #{strip-unit($verne-font-size-root-max)} * poly-pow( #{$verne-font-scale-max}, 1)) !default;
 // Minimum
-$verne-font-size-h4-min: calc($verne-font-size-root-min * poly-pow($verne-font-scale-min, 1)) !default;
+$verne-font-size-h4-min: calc( #{strip-unit($verne-font-size-root-min)} * poly-pow( #{$verne-font-scale-min}, 1)) !default;
 
 // H5 (Header 5)
 // Maximum
@@ -111,9 +111,9 @@ $verne-font-size-h5-min: $verne-font-size-root-min !default;
 
 // H6 (Header 6)
 // Maximum
-$verne-font-size-h6-max: calc($verne-font-size-root-max / poly-pow($verne-font-scale-max, 1)) !default;
+$verne-font-size-h6-max: calc( #{strip-unit($verne-font-size-root-max)} / poly-pow( #{$verne-font-scale-max}, 1)) !default;
 // Minimum
-$verne-font-size-h6-min: calc($verne-font-size-root-min / poly-pow($verne-font-scale-min, 1)) !default;
+$verne-font-size-h6-min: calc( #{strip-unit($verne-font-size-root-min)} / poly-pow( #{$verne-font-scale-min}, 1)) !default;
 
 // 
 // Line Heights

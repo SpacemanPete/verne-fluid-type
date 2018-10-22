@@ -39,7 +39,7 @@ p {
     $verne-line-height-p1-min,
     $verne-line-height-p1-max
   );
-  @include verne-fluid-bottom-margin(
+  @include verne-fluid-margin-bottom(
     $verne-line-height-p1-min,
     $verne-line-height-p1-max
   );
@@ -53,7 +53,7 @@ p {
     $verne-line-height-p2-min,
     $verne-line-height-p2-max
   );
-  @include verne-fluid-bottom-margin(
+  @include verne-fluid-margin-bottom(
     $verne-line-height-p2-min,
     $verne-line-height-p2-max
   );
@@ -67,7 +67,7 @@ p {
     $verne-line-height-p3-min,
     $verne-line-height-p3-max
   );
-  @include verne-fluid-bottom-margin(
+  @include verne-fluid-margin-bottom(
     $verne-line-height-p3-min,
     $verne-line-height-p3-max
   );
@@ -81,7 +81,7 @@ p {
     $verne-line-height-lead-min,
     $verne-line-height-lead-max
   );
-  @include verne-fluid-bottom-margin(
+  @include verne-fluid-margin-bottom(
     $verne-line-height-lead-min,
     $verne-line-height-lead-max
   );
@@ -95,7 +95,7 @@ p {
     $verne-line-height-small-min,
     $verne-line-height-small-max
   );
-  @include verne-fluid-bottom-margin(
+  @include verne-fluid-margin-bottom(
     $verne-line-height-small-min,
     $verne-line-height-small-max
   );
@@ -109,7 +109,7 @@ h1, .h1 {
     $verne-line-height-h1-min,
     $verne-line-height-h1-max
   );
-  @include verne-fluid-bottom-margin(
+  @include verne-fluid-margin-bottom(
     $verne-line-height-h1-min,
     $verne-line-height-h1-max
   );
@@ -123,7 +123,7 @@ h2, .h2 {
     $verne-line-height-h2-min,
     $verne-line-height-h2-max
   );
-  @include verne-fluid-bottom-margin(
+  @include verne-fluid-margin-bottom(
     $verne-line-height-h2-min,
     $verne-line-height-h2-max
   );
@@ -137,7 +137,7 @@ h3, .h3 {
     $verne-line-height-h3-min,
     $verne-line-height-h3-max
   );
-  @include verne-fluid-bottom-margin(
+  @include verne-fluid-margin-bottom(
     $verne-line-height-h3-min,
     $verne-line-height-h3-max
   );
@@ -151,7 +151,7 @@ h4, .h4 {
     $verne-line-height-h4-min,
     $verne-line-height-h4-max
   );
-  @include verne-fluid-bottom-margin(
+  @include verne-fluid-margin-bottom(
     $verne-line-height-h4-min,
     $verne-line-height-h4-max
   );
@@ -165,7 +165,7 @@ h5, .h5 {
     $verne-line-height-h5-min,
     $verne-line-height-h5-max
   );
-  @include verne-fluid-bottom-margin(
+  @include verne-fluid-margin-bottom(
     $verne-line-height-h5-min,
     $verne-line-height-h5-max
   );
@@ -179,7 +179,7 @@ h6, .h6 {
     $verne-line-height-h6-min,
     $verne-line-height-h6-max
   );
-  @include verne-fluid-bottom-margin(
+  @include verne-fluid-margin-bottom(
     $verne-line-height-h6-min,
     $verne-line-height-h6-max
   );
