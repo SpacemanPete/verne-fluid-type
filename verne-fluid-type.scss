@@ -8,20 +8,17 @@
 @import "sass/_fluid-type";
 @import "sass/_fluid-space";
 
-// 
-// Fluid Typography
-// 
-// Creates a shorthand fluid-type function by implementing `fluid-type-vp` using the default stored values for viewport min/max
-@mixin verne-fluid-type($fs-min, $fs-max, $lh-min, $lh-max) {
-  @include verne-fluid-type-vp($verne-vw-max, $verne-vw-min, $fs-min, $fs-max, $lh-min, $lh-max);
-}
+/* 
+* Fluid Typography
+*/
 
-// 
-// Implements baseline fluid-type for the default font sizes
-//   including a default bottom margin for each element that is
-//   equal to one line-height.
-// 
-// Root
+/* 
+*  Implements baseline fluid-type for the default font sizes
+*   including a default bottom margin for each element that is
+*   equal to one line-height.
+*/
+
+/* Root */
 :root {
   @include verne-fluid-type(
     $verne-font-size-root-min,
@@ -31,156 +28,174 @@
   )
 }
 
-// Paragraph 1 (default)
+/* Paragraph 1 (default) */
 p {
   @include verne-fluid-type(
-    $verne-font-size-p1-min,
-    $verne-font-size-p1-max,
+    $verne-font-size-root-min,
+    $verne-font-size-root-max,
     $verne-line-height-p1-min,
     $verne-line-height-p1-max
   );
   @include verne-fluid-margin-bottom(
-    $verne-line-height-p1-min,
-    $verne-line-height-p1-max
+    ratio-to-px($verne-line-height-p1-min, $verne-font-size-root-min ),
+    ratio-to-px($verne-line-height-p1-max, $verne-font-size-root-max )
   );
 }
 
-// Paragraph 2 (default)
+/* Paragraph 2 (default) */
 .p2 {
-  @include verne-fluid-type(
-    $verne-font-size-p2-min,
-    $verne-font-size-p2-max,
+  @include verne-fluid-type-scale(
+    $verne-font-size-root-min,
+    $verne-font-size-root-max,
     $verne-line-height-p2-min,
-    $verne-line-height-p2-max
+    $verne-line-height-p2-max,
+    'scale-down',
+    1
   );
   @include verne-fluid-margin-bottom(
-    $verne-line-height-p2-min,
-    $verne-line-height-p2-max
+    ratio-to-px($verne-line-height-p2-min, $verne-font-size-root-min ),
+    ratio-to-px($verne-line-height-p2-max, $verne-font-size-root-max )
   );
 }
   
-// Paragraph 3 (default)
+/* Paragraph 3 (default) */
 .p3 {
-  @include verne-fluid-type(
-    $verne-font-size-p3-min,
-    $verne-font-size-p3-max,
+  @include verne-fluid-type-scale(
+    $verne-font-size-root-min,
+    $verne-font-size-root-max,
     $verne-line-height-p3-min,
-    $verne-line-height-p3-max
+    $verne-line-height-p3-max,
+    'scale-down',
+    2
   );
   @include verne-fluid-margin-bottom(
-    $verne-line-height-p3-min,
-    $verne-line-height-p3-max
+    ratio-to-px($verne-line-height-p3-min, $verne-font-size-root-min ),
+    ratio-to-px($verne-line-height-p3-max, $verne-font-size-root-max )
   );
 }
 
-// Lead / Highlighted
+/* Lead / Highlighted */
 .lead, .highlighted {
-  @include verne-fluid-type(
-    $verne-font-size-lead-min,
-    $verne-font-size-lead-max,
+  @include verne-fluid-type-scale(
+    $verne-font-size-root-min,
+    $verne-font-size-root-max,
     $verne-line-height-lead-min,
-    $verne-line-height-lead-max
+    $verne-line-height-lead-max,
+    'scale-up',
+    1
   );
   @include verne-fluid-margin-bottom(
-    $verne-line-height-lead-min,
-    $verne-line-height-lead-max
+    ratio-to-px($verne-line-height-lead-min, $verne-font-size-root-min ),
+    ratio-to-px($verne-line-height-lead-max, $verne-font-size-root-max )
   );
 }
 
-// Small / reduced
+/* Small / reduced */
 .small {
-  @include verne-fluid-type(
-    $verne-font-size-small-min,
-    $verne-font-size-small-max,
+  @include verne-fluid-type-scale(
+    $verne-font-size-root-min,
+    $verne-font-size-root-max,
     $verne-line-height-small-min,
-    $verne-line-height-small-max
+    $verne-line-height-small-max,
+    'scale-down',
+    1
   );
   @include verne-fluid-margin-bottom(
-    $verne-line-height-small-min,
-    $verne-line-height-small-max
+    ratio-to-px($verne-line-height-small-min, $verne-font-size-root-min ),
+    ratio-to-px($verne-line-height-small-max, $verne-font-size-root-max )
   );
 }
 
-// H1 (Header 1)
+/* H1 (Header 1) */
 h1, .h1 {
-  @include verne-fluid-type(
-    $verne-font-size-h1-min,
-    $verne-font-size-h1-max,
+  @include verne-fluid-type-scale(
+    $verne-font-size-root-min,
+    $verne-font-size-root-max,
     $verne-line-height-h1-min,
-    $verne-line-height-h1-max
+    $verne-line-height-h1-max,
+    'scale-up',
+    4
   );
   @include verne-fluid-margin-bottom(
-    $verne-line-height-h1-min,
-    $verne-line-height-h1-max
+    ratio-to-px($verne-line-height-h1-min, $verne-font-size-root-min ),
+    ratio-to-px($verne-line-height-h1-max, $verne-font-size-root-max )
   );
 }
 
-// H2 (Header 2)
+/* H2 (Header 2) */
 h2, .h2 {
-  @include verne-fluid-type(
-    $verne-font-size-h2-min,
-    $verne-font-size-h2-max,
+  @include verne-fluid-type-scale(
+    $verne-font-size-root-min,
+    $verne-font-size-root-max,
     $verne-line-height-h2-min,
-    $verne-line-height-h2-max
+    $verne-line-height-h2-max,
+    'scale-up',
+    3
   );
   @include verne-fluid-margin-bottom(
-    $verne-line-height-h2-min,
-    $verne-line-height-h2-max
+    ratio-to-px($verne-line-height-h2-min, $verne-font-size-root-min ),
+    ratio-to-px($verne-line-height-h2-max, $verne-font-size-root-max )
   );
 }
 
-// H3 (Header 3)
+/* H3 (Header 3) */
 h3, .h3 {
-  @include verne-fluid-type(
-    $verne-font-size-h3-min,
-    $verne-font-size-h3-max,
+  @include verne-fluid-type-scale(
+    $verne-font-size-root-min,
+    $verne-font-size-root-max,
     $verne-line-height-h3-min,
-    $verne-line-height-h3-max
+    $verne-line-height-h3-max,
+    'scale-up',
+    2
   );
   @include verne-fluid-margin-bottom(
-    $verne-line-height-h3-min,
-    $verne-line-height-h3-max
+    ratio-to-px($verne-line-height-h3-min, $verne-font-size-root-min ),
+    ratio-to-px($verne-line-height-h3-max, $verne-font-size-root-max )
   );
 }
 
-// H4 (Header 4)
+/* H4 (Header 4) */
 h4, .h4 {
-  @include verne-fluid-type(
-    $verne-font-size-h4-min,
-    $verne-font-size-h4-max,
+  @include verne-fluid-type-scale(
+    $verne-font-size-root-min,
+    $verne-font-size-root-max,
     $verne-line-height-h4-min,
-    $verne-line-height-h4-max
+    $verne-line-height-h4-max,
+    'scale-up',
+    1
   );
   @include verne-fluid-margin-bottom(
-    $verne-line-height-h4-min,
-    $verne-line-height-h4-max
+    ratio-to-px($verne-line-height-h4-min, $verne-font-size-root-min ),
+    ratio-to-px($verne-line-height-h4-max, $verne-font-size-root-max )
   );
 }
 
-// H5 (Header 5)
+/* H5 (Header 5) */
 h5, .h5 {
   @include verne-fluid-type(
-    $verne-font-size-h5-min,
-    $verne-font-size-h5-max,
+    $verne-font-size-root-min,
+    $verne-font-size-root-max,
     $verne-line-height-h5-min,
     $verne-line-height-h5-max
   );
   @include verne-fluid-margin-bottom(
-    $verne-line-height-h5-min,
-    $verne-line-height-h5-max
+    ratio-to-px($verne-line-height-h5-min, $verne-font-size-root-min ),
+    ratio-to-px($verne-line-height-h5-max, $verne-font-size-root-max )
   );
 }
 
-// H6 (Header 6)
+/* H6 (Header 6) */
 h6, .h6 {
-  @include verne-fluid-type(
-    $verne-font-size-h6-min,
-    $verne-font-size-h6-max,
+  @include verne-fluid-type-scale(
+    $verne-font-size-root-min,
+    $verne-font-size-root-max,
     $verne-line-height-h6-min,
-    $verne-line-height-h6-max
+    $verne-line-height-h6-max,
+    'scale-down',
+    1
   );
   @include verne-fluid-margin-bottom(
-    $verne-line-height-h6-min,
-    $verne-line-height-h6-max
+    ratio-to-px($verne-line-height-h6-min, $verne-font-size-root-min ),
+    ratio-to-px($verne-line-height-h6-max, $verne-font-size-root-max )
   );
 }

@@ -2,6 +2,13 @@
 // Fluid Typography mixins module
 //
 // This module defines the fluid type mixins 
+
+// 
+// Imports
+// 
+@import 'node_modules/sass-math-pow/sass/math-pow';
+@import "_variables";
+
 // 
 // TODO: add comments and examples
 //
@@ -16,7 +23,7 @@
 //    $fs-max = font size maximum
 //    $lh-min = line height minimum
 //    $lh-max = line height maximum
-@mixin verne-fluid-type-vp($vw-min, $vw-max, $fs-min, $fs-max, $lh-min, $lh-max) {
+@mixin verne-fluid-type-full($vw-min, $vw-max, $fs-min, $fs-max, $lh-min, $lh-max, $scale-dir, $scale-factor) {
 
   // TODO: Refactor unit value checks to provide better enforcement of provided argument values
   //       and more clear error messaging when incorrectly implemented
@@ -32,20 +39,103 @@
   // Check that the argument unit values match (px, em, etc)
   @if ($u1 == $u2 and $u1 == $u3 and $u1 == $u4 and $u5 == $u6) {
     & {
-      // Set the font size and line height values to their minimum values as the default
-      font-size: $fs-min;
-      line-height: $lh-min;
-
-      // Above the supplied minimim viewport width size calculate the font size and line height based ont he viewport width.
-      @media screen and (min-width: $vw-min) {
-        font-size: calc( #{$fs-min} + #{strip-unit($fs-max - $fs-min)} * ((100vw - #{$vw-min}) / #{strip-unit($vw-max - $vw-min)}) );
-        line-height: calc( (#{$lh-min} * 100%) + #{strip-unit($lh-max - $lh-min)} * ((100vw - #{$vw-min}) / #{strip-unit($vw-max - $vw-min)}) );
-      }
-      // Above the supplied maximum viewport width size set the font size and line height values to the max values
-      @media screen and (min-width: $vw-max) {
-        font-size: $fs-max;
-        line-height: $lh-max;
+      @if ($scale-dir == 'scale-up') {
+        // Set the font size and line height values to their minimum values as the default
+        font-size: #{scale-font-up($fs-min, $verne-font-scale-min, $scale-factor)};
+        line-height: $lh-min;
+        
+        // Above the supplied minimim viewport width size calculate the font size and line height based ont he viewport width.
+        @media screen and (min-width: $vw-min) {
+          font-size: calc( #{scale-font-up($fs-min, $verne-font-scale-min, $scale-factor)} + #{strip-unit(scale-font-up($fs-max, $verne-font-scale-max, $scale-factor) - $fs-min)} * ((100vw - #{$vw-min}) / #{strip-unit($vw-max - $vw-min)}) );
+          line-height: calc( (#{$lh-min} * 100%) + #{strip-unit($lh-max - $lh-min)} * ((100vw - #{$vw-min}) / #{strip-unit($vw-max - $vw-min)}) );
+        }
+        // Above the supplied maximum viewport width size set the font size and line height values to the max values
+        @media screen and (min-width: $vw-max) {
+          font-size: #{scale-font-up($fs-max, $verne-font-scale-max, $scale-factor)};
+          line-height: $lh-max;
+        }
+      } @else if ($scale-dir == 'scale-down') {
+        // Set the font size and line height values to their minimum values as the default
+        font-size: scale-font-down($fs-min, $verne-font-scale-min, $scale-factor);
+        line-height: $lh-min;
+        
+        // Above the supplied minimim viewport width size calculate the font size and line height based ont he viewport width.
+        @media screen and (min-width: $vw-min) {
+          font-size: calc( #{scale-font-down($fs-min, $verne-font-scale-min, $scale-factor)} + #{strip-unit(scale-font-down($fs-max, $verne-font-scale-max, $scale-factor) - $fs-min)} * ((100vw - #{$vw-min}) / #{strip-unit($vw-max - $vw-min)}) );
+          line-height: calc( (#{$lh-min} * 100%) + #{strip-unit($lh-max - $lh-min)} * ((100vw - #{$vw-min}) / #{strip-unit($vw-max - $vw-min)}) );
+        }
+        // Above the supplied maximum viewport width size set the font size and line height values to the max values
+        @media screen and (min-width: $vw-max) {
+          font-size: scale-font-down($fs-max, $verne-font-scale-max, $scale-factor);
+          line-height: $lh-max;
+        }
+      } @else if ($scale-dir == 'none'){
+        // Set the font size and line height values to their minimum values as the default
+        font-size: $fs-min;
+        line-height: $lh-min;
+        
+        // Above the supplied minimim viewport width size calculate the font size and line height based ont he viewport width.
+        @media screen and (min-width: $vw-min) {
+          font-size: calc( #{$fs-min} + #{strip-unit($fs-max - $fs-min)} * ((100vw - #{$vw-min}) / #{strip-unit($vw-max - $vw-min)}) );
+          line-height: calc( (#{$lh-min} * 100%) + #{strip-unit($lh-max - $lh-min)} * ((100vw - #{$vw-min}) / #{strip-unit($vw-max - $vw-min)}) );
+        }
+        // Above the supplied maximum viewport width size set the font size and line height values to the max values
+        @media screen and (min-width: $vw-max) {
+          font-size: $fs-max;
+          line-height: $lh-max;
+        }
       }
     }
+  }
+}
+
+// Creates a shorthand fluid-type function by implementing `fluid-type-full` using the default stored values for viewport min/max
+@mixin verne-fluid-type($fs-min, $fs-max, $lh-min, $lh-max) {
+  @include verne-fluid-type-full($verne-vw-min, $verne-vw-max, $fs-min, $fs-max, $lh-min, $lh-max, $scale-dir: 'none', $scale-factor: false);
+}
+
+// Creates a shorthand fluid-type-scale function by implementing `fluid-type-full` using the default stored values for viewport min/max and allowing to scale the base font min/max values up or down on the modular scale
+@mixin verne-fluid-type-scale($fs-min, $fs-max, $lh-min, $lh-max, $scale-dir, $scale-factor) {
+  @include verne-fluid-type-full($verne-vw-min, $verne-vw-max, $fs-min, $fs-max, $lh-min, $lh-max, $scale-dir, $scale-factor);
+}
+
+// 
+// Functions to calculate font-size value bases on the modular scale setting
+// 
+/// Scale font-size up on the modular scale
+/// @param {Number} $font-size - The font-size to convert
+/// @param {Number} $scale - The modular scale ratio
+/// @param {Number} $exponent - The factor of the modular scale to convert the font-size
+@function scale-font-up($font-size, $scale, $exponent) {
+  @return $font-size * poly-pow( $scale, $exponent);
+}
+/// Scale font-size down on the modular scale
+/// @param {Number} $font-size - The font-size to convert
+/// @param {Number} $scale - The modular scale ratio
+/// @param {Number} $exponent - The factor of the modular scale to convert the font-size
+@function scale-font-down($font-size, $scale, $exponent) {
+  @return $font-size / poly-pow( $scale, $exponent);
+}
+
+// 
+// Utility functions
+// 
+
+/// Remove the unit of a length
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+  @return $number;
+}
+
+/// Convert line height ratio to pixel unit
+/// @param {Number} $ratio - ratio by which to multiply the font-size
+/// @param {Number} $root-font-size - the font size to convert via multiplying by the supplied ratio
+@function ratio-to-px($ratio, $root-font-size) {
+  @if type-of($ratio) == 'number' and unitless($ratio) {
+    @return $ratio * $root-font-size;
   }
 }

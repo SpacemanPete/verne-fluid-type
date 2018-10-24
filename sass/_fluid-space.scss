@@ -48,7 +48,7 @@
 
 // Creates a shorthand verne-fluid-space function by implementing `verne-fluid-space-vp` using the default stored values for viewport min/max
 @mixin verne-fluid-space($space-min, $space-max, $property) {
-  @include verne-fluid-space-vp($verne-vw-max, $verne-vw-min, $space-min, $space-max, $property);
+  @include verne-fluid-space-vp($verne-vw-min, $verne-vw-max, $space-min, $space-max, $property);
 }
 
 // 
