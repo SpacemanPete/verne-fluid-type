@@ -172,7 +172,7 @@ h4, .h4 {
 
 /* H5 (Header 5) */
 h5, .h5 {
-  @include verne-fluid-type(
+  @include verne-fluid-type-scale(
     $verne-font-size-root-min,
     $verne-font-size-root-max,
     $verne-line-height-h5-min,
@@ -188,7 +188,7 @@ h5, .h5 {
 
 /* H6 (Header 6) */
 h6, .h6 {
-  @include verne-fluid-type-scale(
+  @include verne-fluid-type(
     $verne-font-size-root-min,
     $verne-font-size-root-max,
     $verne-line-height-h6-min,
