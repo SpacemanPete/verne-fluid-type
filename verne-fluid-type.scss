@@ -114,7 +114,7 @@ h1, .h1 {
     $verne-line-height-h1-min,
     $verne-line-height-h1-max,
     'scale-up',
-    4
+    5
   );
   @include verne-fluid-margin-bottom(
     ratio-to-px($verne-line-height-h1-min, $verne-font-size-root-min ),
@@ -130,7 +130,7 @@ h2, .h2 {
     $verne-line-height-h2-min,
     $verne-line-height-h2-max,
     'scale-up',
-    3
+    4
   );
   @include verne-fluid-margin-bottom(
     ratio-to-px($verne-line-height-h2-min, $verne-font-size-root-min ),
@@ -146,7 +146,7 @@ h3, .h3 {
     $verne-line-height-h3-min,
     $verne-line-height-h3-max,
     'scale-up',
-    2
+    3
   );
   @include verne-fluid-margin-bottom(
     ratio-to-px($verne-line-height-h3-min, $verne-font-size-root-min ),
@@ -162,7 +162,7 @@ h4, .h4 {
     $verne-line-height-h4-min,
     $verne-line-height-h4-max,
     'scale-up',
-    1
+    2
   );
   @include verne-fluid-margin-bottom(
     ratio-to-px($verne-line-height-h4-min, $verne-font-size-root-min ),
@@ -176,7 +176,9 @@ h5, .h5 {
     $verne-font-size-root-min,
     $verne-font-size-root-max,
     $verne-line-height-h5-min,
-    $verne-line-height-h5-max
+    $verne-line-height-h5-max,
+    'scale-up',
+    1
   );
   @include verne-fluid-margin-bottom(
     ratio-to-px($verne-line-height-h5-min, $verne-font-size-root-min ),
@@ -190,9 +192,7 @@ h6, .h6 {
     $verne-font-size-root-min,
     $verne-font-size-root-max,
     $verne-line-height-h6-min,
-    $verne-line-height-h6-max,
-    'scale-down',
-    1
+    $verne-line-height-h6-max
   );
   @include verne-fluid-margin-bottom(
     ratio-to-px($verne-line-height-h6-min, $verne-font-size-root-min ),
