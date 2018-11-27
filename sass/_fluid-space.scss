@@ -29,6 +29,9 @@
       str-index($property, 'background-position-y') or
       str-index($property, 'background-size') or
       str-index($property, 'top') or
+      str-index($property, 'bottom') or
+      str-index($property, 'left') or
+      str-index($property, 'right') or
       str-index($property, 'width') or
       str-index($property, 'height')
     )
