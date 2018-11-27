@@ -46,7 +46,7 @@
         
         // Above the supplied minimim viewport width size calculate the font size and line height based ont he viewport width.
         @media screen and (min-width: $vw-min) {
-          font-size: calc( #{scale-font-up($fs-min, $verne-font-scale-min, $scale-factor)} + #{strip-unit(scale-font-up($fs-max, $verne-font-scale-max, $scale-factor) - $fs-min)} * ((100vw - #{$vw-min}) / #{strip-unit($vw-max - $vw-min)}) );
+          font-size: calc( #{scale-font-up($fs-min, $verne-font-scale-min, $scale-factor)} + ( #{strip-unit(scale-font-up($fs-max, $verne-font-scale-max, $scale-factor))} - #{strip-unit(scale-font-up($fs-min, $verne-font-scale-min, $scale-factor))} ) * ((100vw - #{$vw-min}) / #{strip-unit($vw-max - $vw-min)}) );
           line-height: calc( (#{$lh-min} * 100%) + #{strip-unit($lh-max - $lh-min)} * ((100vw - #{$vw-min}) / #{strip-unit($vw-max - $vw-min)}) );
         }
         // Above the supplied maximum viewport width size set the font size and line height values to the max values
@@ -61,7 +61,7 @@
         
         // Above the supplied minimim viewport width size calculate the font size and line height based ont he viewport width.
         @media screen and (min-width: $vw-min) {
-          font-size: calc( #{scale-font-down($fs-min, $verne-font-scale-min, $scale-factor)} + #{strip-unit(scale-font-down($fs-max, $verne-font-scale-max, $scale-factor) - $fs-min)} * ((100vw - #{$vw-min}) / #{strip-unit($vw-max - $vw-min)}) );
+          font-size: calc( #{scale-font-down($fs-min, $verne-font-scale-min, $scale-factor)} + ( #{strip-unit(scale-font-down($fs-max, $verne-font-scale-max, $scale-factor))} - #{strip-unit(scale-font-down($fs-min, $verne-font-scale-min, $scale-factor))} ) * ((100vw - #{$vw-min}) / #{strip-unit($vw-max - $vw-min)}) );
           line-height: calc( (#{$lh-min} * 100%) + #{strip-unit($lh-max - $lh-min)} * ((100vw - #{$vw-min}) / #{strip-unit($vw-max - $vw-min)}) );
         }
         // Above the supplied maximum viewport width size set the font size and line height values to the max values

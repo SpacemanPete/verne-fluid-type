@@ -1,6 +1,6 @@
 {
   "name": "verne-fluid-type",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Verne: a fluid typography and spacing system of SASS mixins for impeccably responsive websites.",
   "main": "verne-fluid-type.scss",
   "scripts": {
